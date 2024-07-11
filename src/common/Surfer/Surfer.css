@@ -1,0 +1,9 @@
+
+.surfer-design {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.surfer-design:hover {
+    color: #09df34;
+}
