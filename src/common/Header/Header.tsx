@@ -1,21 +1,46 @@
+import { useContext, useState, useEffect } from 'react';
 import Surfer from '../Surfer/Surfer';
 import './Header.css';
+import { myContext } from '../../app/context';
+import { MyContextType } from '../../interfaces';
+import CInput from '../CInput/CInput';
 
- function Header () {
+function Header() {
+    const { state, setGlobal } = useContext(myContext) as MyContextType;
+    const [search, setSearch] = useState("");
+
+    const inputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setSearch(e.target.value)
+      }
+
+      useEffect(()=> {
+        setGlobal("search", search);
+      }, [search])
+
     return (
         <>
             <nav className='header-design'>
                 <em className='main-title'>Recipes</em>
-                <ul className='navigation'>
-                    <Surfer path={"/"} destination={"Home"}/>
-                    <Surfer path={"/login"} destination={"Login"}/>
-                </ul>
+                <div className='navigation'>
+                    <CInput labelName="none" type="text" name="search" design="basic-design" placeholder="" errorCheck={()=>{}} emitFunction={inputHandler} />
+                    <Surfer path={"/"} destination={"Home"} />
+                    {state.global.token === "" ? (
+                        <Surfer path={"/login"} destination={"Login"} />
+                    ) : (
+                        <>
+                            <Surfer path={"/favorites"} destination={"Favorites"} />
+                            <span onClick={() => setGlobal("token", "")}>
+                                <Surfer path={"/"} destination={"Log out"} />
+                            </span>
+                        </>
+                    )}
+                </div>
             </nav>
-    
+
         </>
-    ) 
-    
-    
+    )
+
+
 }
 
 export default Header;

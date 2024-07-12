@@ -21,11 +21,36 @@ export interface RecipeObject {
 }
 
 export interface Recipe {
-    id: number,
     label: string,
     image: string,
     mealType: string,
     totalTime: number,
     calories: number
     cuisineType: string;
+}
+
+export interface IContext {
+    global: {
+        token : string,
+        favorite: string[],
+        search: string
+    }
+}
+
+export type MyContextType = {
+    state: IContext;
+    setGlobal: (target: string, payload: string) => void;
+  };
+
+
+export interface LoginResponse{
+    email: string,
+    firstName: string,
+    token: string
+}
+
+export interface LoginAnswer {
+    message: string,
+    success: boolean,
+    data: LoginResponse
 }

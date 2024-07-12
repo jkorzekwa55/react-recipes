@@ -1,3 +1,4 @@
 import { createContext } from "react";
+import { MyContextType } from "../interfaces";
 
-export const myContext = createContext({});
+export const myContext = createContext<MyContextType | null>(null);

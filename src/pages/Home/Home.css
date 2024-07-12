@@ -2,8 +2,13 @@
     height: 88vh;
     width: 100vw;
     background-color: #efefef;
+    display: flex;
     padding-top: 1em;
     padding-bottom: 1em;
     box-sizing: border-box;
     overflow-y: scroll;
+}
+
+.recipe-container{
+    max-height: 100%; 
 }

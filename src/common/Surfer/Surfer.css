@@ -2,6 +2,7 @@
 .surfer-design {
     font-weight: bold;
     cursor: pointer;
+    width: max-content;
 }
 
 .surfer-design:hover {

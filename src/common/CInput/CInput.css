@@ -1,0 +1,15 @@
+.basic-input {
+   
+}
+
+.error-input{
+    border: red 0.2em solid;
+}
+
+.custom-group{
+    width: 100%;
+}
+
+.label{
+    margin-top: 0.5em;
+}
