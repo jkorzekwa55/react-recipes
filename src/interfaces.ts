@@ -27,19 +27,29 @@ export interface Recipe {
     totalTime: number,
     calories: number
     cuisineType: string;
+    ingredients: Ingredient[],
+    favorite: boolean
+}
+
+export interface Ingredient{
+    food: string,
+    quantity: number,
+    text: string
 }
 
 export interface IContext {
     global: {
         token : string,
-        favorite: string[],
-        search: string
+        favorite: Recipe[],
+        search: string,
+        recipe: Recipe
     }
 }
 
 export type MyContextType = {
     state: IContext;
-    setGlobal: (target: string, payload: string) => void;
+    setGlobal: (target: string, payload: string | Recipe) => void;
+    changeFavStatus: (recipe: Recipe) => void;
   };
 
 

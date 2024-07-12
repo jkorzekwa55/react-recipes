@@ -5,14 +5,14 @@ import { Answer, MyContextType, Recipe } from '../../interfaces';
 import { Container, Row, Col } from "react-bootstrap";
 import RecipeCard from '../../common/RecipeCard/RecipeCard';
 import { myContext } from '../../app/context';
+import { useNavigate } from 'react-router-dom';
 
 function Home() {
     const [recipes, setRecipes] = useState<Recipe[]>([]);
     const [flag, setFlag] = useState<boolean>(false);
     const [msgError, setMsgError] = useState<string>("");
-    const { state, setGlobal } = useContext(myContext) as MyContextType;
-
-
+    const { state, setGlobal, changeFavStatus } = useContext(myContext) as MyContextType;
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (state.global.search !== "") {
@@ -40,6 +40,24 @@ function Home() {
         }
     }, [state])
 
+    const selectRecipe = (recipe: Recipe) => {
+        setGlobal("recipe", recipe);
+        navigate("/recipedetail");
+      }
+
+    const changeFavoriteStatus = (recipe: Recipe) => {
+        changeFavStatus(recipe);
+    }
+    
+     const getLiked = (r: Recipe) : boolean => {
+        for (var i = 0; i < state.global.favorite.length; i++) {
+            if (state.global.favorite[i].label === r.label) {
+                return true;
+            }
+        }
+        return false;
+     }
+
     return (
         <>
             <div className='main-content'>
@@ -49,7 +67,7 @@ function Home() {
                             {recipes.map((recipe) => {
                                 return (
                                     <Col key={recipes.indexOf(recipe)} sm={12} md={6} lg={4} xl={3}>
-                                        <RecipeCard key={recipes.indexOf(recipe)} imgPath={recipe.image} label={recipe.label} mealType={recipe.mealType} calories={recipe.calories} />
+                                        <RecipeCard likeHandler={changeFavoriteStatus} favorite={getLiked(recipe)} clickHandler={selectRecipe} recipe={recipe} key={recipes.indexOf(recipe)} imgPath={recipe.image} label={recipe.label} mealType={recipe.mealType} calories={recipe.calories} />
                                     </Col>
                                 )
                             })}

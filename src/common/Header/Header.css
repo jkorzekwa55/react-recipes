@@ -13,6 +13,7 @@
 .main-title{
     font-size: 23px;
     color: #09df34;
+    cursor: pointer;
     padding-left: 1em;
     box-sizing: border-box;
     font-weight: bold;
