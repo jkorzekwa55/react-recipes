@@ -1,6 +1,11 @@
 # About the page
 ![alt text](/image/page.png)
 
+## Installation
+Clone this repositoty to your computer. 
+Install packages using `npm install`.
+Run project with `npm run dev` command.
+
 ## Built with
 * HTML
 * CSS

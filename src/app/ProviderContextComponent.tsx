@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { myContext } from "./context";
-import { IContext, MyContextType, Recipe } from "../interfaces";
+import { IContext, Recipe } from "../interfaces";
 
 export const MyProvider = ({ children }: { children: any }) => {
     const [state, setState] = useState<IContext>({
@@ -47,7 +47,7 @@ export const MyProvider = ({ children }: { children: any }) => {
             const favArr = state.global.favorite;
             let inArr = false;
             let id = 0;
-            
+
             for (var i = 0; i < state.global.favorite.length; i++) {
                 if (state.global.favorite[i].label === recipe.label) {
                     inArr = true;

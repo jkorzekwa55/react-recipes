@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import './Home.css';
 import { bringRecipes } from '../../services/api-calls';
-import { Answer, MyContextType, Recipe } from '../../interfaces';
+import { MyContextType, Recipe } from '../../interfaces';
 import { Container, Row, Col } from "react-bootstrap";
 import RecipeCard from '../../common/RecipeCard/RecipeCard';
 import { myContext } from '../../app/context';
@@ -9,8 +9,7 @@ import { useNavigate } from 'react-router-dom';
 
 function Home() {
     const [recipes, setRecipes] = useState<Recipe[]>([]);
-    const [flag, setFlag] = useState<boolean>(false);
-    const [msgError, setMsgError] = useState<string>("");
+    const [msgError] = useState<string>("");
     const { state, setGlobal, changeFavStatus } = useContext(myContext) as MyContextType;
     const navigate = useNavigate();
 
