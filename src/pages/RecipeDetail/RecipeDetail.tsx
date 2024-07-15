@@ -1,15 +1,11 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { myContext } from "../../app/context";
 import "./RecipeDetail.css";
-import { MyContextType, Recipe } from "../../interfaces";
+import { MyContextType } from "../../interfaces";
 
 
 function RecipeDetail() {
-    const { state, setGlobal } = useContext(myContext) as MyContextType;
-
-    useEffect(()=>{
-        console.log(state)
-    }, [state])
+    const { state } = useContext(myContext) as MyContextType;
 
     return (
         <div className="details-main-content">

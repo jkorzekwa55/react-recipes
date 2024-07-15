@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { myContext } from "./context";
 import { IContext, Recipe } from "../interfaces";
 
@@ -6,16 +6,7 @@ export const MyProvider = ({ children }: { children: any }) => {
     const [state, setState] = useState<IContext>({
         global: {
             token: "",
-            favorite: [{
-                label: "",
-                image: "",
-                mealType: "",
-                totalTime: 0,
-                calories: 0,
-                cuisineType: "string",
-                ingredients: [],
-                favorite: true
-            }],
+            favorite: [],
             search: "",
             recipe: {
                 label: "",
@@ -29,8 +20,6 @@ export const MyProvider = ({ children }: { children: any }) => {
             }
         }
     })
-
-    useEffect(() => {state.global.favorite.pop()}, [])
 
     const setGlobal = (target: string, payload: string | Recipe) => {
 

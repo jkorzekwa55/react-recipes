@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import './Favorite.css';
+import './Favourite.css';
 import { MyContextType, Recipe } from '../../interfaces';
 import { Container, Row, Col } from "react-bootstrap";
 import RecipeCard from '../../common/RecipeCard/RecipeCard';

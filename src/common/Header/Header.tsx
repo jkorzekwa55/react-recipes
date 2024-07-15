@@ -30,7 +30,7 @@ function Header() {
                         <Surfer path={"/login"} destination={"Login"} />
                     ) : (
                         <>
-                            <Surfer path={"/favorites"} destination={"Favorites"} />
+                            <Surfer path={"/favourites"} destination={"Favourites"} />
                             <span onClick={() => setGlobal("token", "")}>
                                 <Surfer path={"/"} destination={"Log out"} />
                             </span>

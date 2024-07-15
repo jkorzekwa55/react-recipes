@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 
 
 function Login() {
-    const { state, setGlobal } = useContext(myContext) as MyContextType;
+    const {setGlobal } = useContext(myContext) as MyContextType;
     const [ loginError, setLoginError ] = useState("");
     const navigate = useNavigate()
 
@@ -41,8 +41,6 @@ function Login() {
     }
 
     const loginFunction = async () => {
-        console.log(credentials);
-
         sendCredentials(credentials)
             .then(res => {
                 setGlobal("token", res.data.token);
