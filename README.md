@@ -8,9 +8,9 @@
 
 ## Features
 
-- [*] searching through recipes
-- [*] login to user account
-- [*] adding recipe to favorites
+- searching through recipes
+- login to user account
+- adding recipe to favorites
 
 
 <!-- style links -->
