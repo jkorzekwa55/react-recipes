@@ -1,4 +1,5 @@
 # About the page
+The page allows you to scroll through recipes and add them to your favourites after loggin
 ![alt text](/image/page.png)
 
 ## Installation
@@ -9,6 +10,7 @@ Run project with `npm run dev` command.
 ## Built with
 * HTML
 * CSS
+* TYPESCRIPT
 * [![React][React.js]][React-url]
 
 ## Features
